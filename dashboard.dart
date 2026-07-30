@@ -62,46 +62,49 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
   // function to create card
   Widget myCard(String title, IconData myIcon) {
-    return GestureDetector(
-      onTap: () {
-        print(title + ' clicked');
-      },
-      child: Container(
-        height: 150,
-        width: 150,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 5.0,
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              myIcon,
-              size: 40.0,
-              color: Colors.black,
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
+    return Container(
+      height: 150,
+      width: 150,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 5.0,
+          ),
+        ],
+      ),
+    
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(15.0), // Keeps ripple inside the rounded corners
+          onTap: () {
+            print(title + ' clicked');
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                myIcon,
+                size: 40.0,
+                color: Colors.black,
               ),
-            ),
-          ],
+              SizedBox(height: 10.0),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
